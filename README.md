@@ -1,2 +1,4 @@
 # holbertonschool-AirBnB_clone
-    -Jesus
+-Jesus
+-Daniel
+
