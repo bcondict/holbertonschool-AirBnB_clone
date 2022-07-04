@@ -21,7 +21,7 @@ class BaseModel:
                     self.__dict__[key] = datetime.strptime(value, my_format)
                 else:
                     self.__dict__[key] = value
-        storage.new()
+        storage.new(self)
 
     def __str__(self):
         return("[{}] ({}) {}".format(self.__class__.__name__, self.id, self.__dict__))
