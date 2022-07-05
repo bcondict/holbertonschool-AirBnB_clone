@@ -16,9 +16,17 @@ class HBNBCommand(cmd.Cmd):
     def empyline(self, arg):
         print()
         pass
-    def EOF(self, arg):
+    def do_create(self, arg):
         pass
-    def EOF(self, arg):
+    def do_show(self, arg):
+        pass
+    def do_destroy(self, arg):
+        pass
+    def do_all(self, arg):
+        pass
+    def do_update(self, arg):
+        pass
+    def do_show(self, arg):
         pass
 
 if __name__ == '__main__':
