@@ -24,15 +24,23 @@ class BaseModel:
         storage.new(self)
 
     def __str__(self):
-        return("[{}] ({}) {}".format(self.__class__.__name__, self.id, self.__dict__))
+        st = "[{:s}] ({:s}) {:s}"
+        st = st.format(self.__class__.__name__, self.id, str(self.__dict__))
+        #return("[{}] ({}) {}".format(self.__class__.__name__, self.id, str(self.__dict__)))
+        return st
 
     def save(self):
         self.updated_at = datetime.now()
         storage.save()
 
     def to_dict(self):
-        my_dict = self.__dict__
+        my_dict = dict(self.__dict__)
         my_dict["created_at"] = self.created_at.isoformat()
         my_dict["updated_at"] = self.updated_at.isoformat()
+        """for key, value in self.__dict__.items():
+            if isinstance(value, datetime):
+                my_dict[key] = value.isoformat()
+            else:
+                my_dict[key] = value"""
         my_dict["__class__"] = self.__class__.__name__
         return my_dict
