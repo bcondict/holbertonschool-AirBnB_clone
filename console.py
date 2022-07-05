@@ -3,6 +3,7 @@
 
 
 import cmd, sys
+from models.base_model import BaseModel
 
 
 class HBNBCommand(cmd.Cmd):
@@ -12,12 +13,21 @@ class HBNBCommand(cmd.Cmd):
         """Quit command to exit the program"""
         sys.exit()
     def do_EOF(self, arg):
+        """EOF command to exit the program"""
         sys.exit()
     def empyline(self, arg):
+        """Emptyline print a new line"""
         print()
         pass
     def do_create(self, arg):
-        pass
+        line = arg.split()
+        if len(line == 0)
+            print("** class name missing **")
+        if line[0] not "BaseModel":
+            print("** class doesn't exist **")
+        
+
+
     def do_show(self, arg):
         pass
     def do_destroy(self, arg):
