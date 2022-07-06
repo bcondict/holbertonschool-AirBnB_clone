@@ -1,10 +1,10 @@
 #!/usr/bin/python3
-"""  """
+""" place class """
 from models.base_model import BaseModel
 
 
 class Place(BaseModel):
-    """  """
+    """ class that inherit from BaseModel. """
     city_id = ""
     user_id = ""
     name = ""
@@ -18,5 +18,5 @@ class Place(BaseModel):
     amenity_ids = []
 
     def __init__(self, *args, **kwargs):
-        """"""
+        """ Init method for place. """
         super().__init__(*args, **kwargs)
