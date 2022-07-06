@@ -2,6 +2,7 @@
 """ contains the entry point of the command interpreter. """
 
 
+from ast import Store
 import cmd
 import sys
 import shlex
@@ -26,35 +27,37 @@ class HBNBCommand(cmd.Cmd):
     prompt = '(hbnb) '
 
     def do_quit(self, arg):
-        """Quit command to exit the program"""
+        """Quit command to exit the program
+        """
         sys.exit()
 
     def do_EOF(self, arg):
-        """EOF command to exit the program"""
+        """EOF command to exit the program
+        """
         sys.exit()
 
     def empyline(self, arg):
-        """Emptyline print a new line"""
+        """Emptyline print a new line
+        """
         print()
         pass
 
     def do_create(self, arg):
-        """
-            If arguments are valid create a new instance according to
-            given values.
+        """If arguments are valid create a new instance according to given values.
         """
         line = arg.split()
         if len(line) == 0:
             print("** class name missing **")
-        if line[0] != "BaseModel":
-            print("** class doesn't exist **")
-        instance = classes[line[0]]()
-        print(instance.id)
-        instance.save()
+        else:
+            if line[0] not in classes:
+                print("** class doesn't exist **")
+            else:
+                instance = classes[line[0]]()
+                instance.save()
+                print(instance.id)
 
     def do_show(self, arg):
-        """
-            Prints a representation of an instance.
+        """Prints a representation of an instance.
         """
         args = shlex.split(arg)
         if len(args) == 0:
@@ -73,8 +76,7 @@ class HBNBCommand(cmd.Cmd):
             print("** class doesn't exist **")
 
     def do_destroy(self, arg):
-        """
-            Deletes an instance.
+        """Deletes an instance.
         """
         args = shlex.split(arg)
         if len(args) == 0:
@@ -94,12 +96,54 @@ class HBNBCommand(cmd.Cmd):
             print("** class doesn't exist **")
 
     def do_all(self, arg):
-        """  """
-        pass
+        """Return a dictionary from objects
+        """
+        args = shlex.split(arg)
+        my_dict = models.storage.all()
+        my_list = []
+        if arg:
+            if args[0] not in classes:
+                print("** class doesn't exist **")
+                return False
+
+            for key, value in my_dict.items():
+                if args[0] in key:
+                    my_list.append(str(value))
+            print(my_list)
+
+        else:
+            for value in my_dict.values():
+                my_list.append(str(value))
+            print(my_list)
 
     def do_update(self, arg):
-        """  """
-        pass
+        """  Updates an instance based on the class name and id 
+            by adding or updating attribute
+        """
+        args = shlex.split(arg)
+        if len(args) == 0:
+            print("** class name missing **")
+        else:
+            my_dict = models.storage.all()
+            if args[0] in classes:
+                key = args[0] + "." + args[1]
+                if len(args) < 2:
+                    print("** instance id missing **")
+                    return False
+                if len(args) < 3:
+                    print("** attribute name missing **")
+                    return False
+                if len(args) < 4:
+                    print("** value missing **")
+                    return False
+                if '"' in args[3]:
+                    change = args[4].replace('"', '')
+                    my_obj = my_dict[args[0] + "." + args[1]]
+
+                    setattr(my_obj, args[2], change)
+                    my_dict[key].save()
+            else:
+                print("** class doesn't exist **")
 
 
 if __name__ == '__main__':
