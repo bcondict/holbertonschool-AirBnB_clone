@@ -2,7 +2,10 @@
 """ """
 
 
-import cmd, sys, shlex, models
+import cmd
+import sys
+import shlex
+import models
 from models.base_model import BaseModel
 from models.place import Place
 from models.review import Review
@@ -11,10 +14,8 @@ from models.state import State
 from models.city import City
 from models.amenity import Amenity
 
-classes = {"BaseModel" : BaseModel, "User" : User, "State" : State, "City" : City,
-            "Amenity" : Amenity, "Place" : Place, "Review" : Review}
-
-
+classes = {"BaseModel": BaseModel, "User": User, "State": State, "City": City,
+           "Amenity": Amenity, "Place": Place, "Review": Review}
 
 
 class HBNBCommand(cmd.Cmd):
@@ -23,9 +24,11 @@ class HBNBCommand(cmd.Cmd):
     def do_quit(self, arg):
         """Quit command to exit the program"""
         sys.exit()
+
     def do_EOF(self, arg):
         """EOF command to exit the program"""
         sys.exit()
+
     def empyline(self, arg):
         """Emptyline print a new line"""
         print()
@@ -81,8 +84,10 @@ class HBNBCommand(cmd.Cmd):
 
     def do_all(self, arg):
         pass
+
     def do_update(self, arg):
         pass
+
 
 if __name__ == '__main__':
     HBNBCommand().cmdloop()
