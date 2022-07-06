@@ -26,7 +26,8 @@ class BaseModel:
     def __str__(self):
         st = "[{:s}] ({:s}) {:s}"
         st = st.format(self.__class__.__name__, self.id, str(self.__dict__))
-        #return("[{}] ({}) {}".format(self.__class__.__name__, self.id, str(self.__dict__)))
+        # return("[{}] ({}) {}".format(self.
+        #       __class__.__name__, self.id, str(self.__dict__)))
         return st
 
     def save(self):

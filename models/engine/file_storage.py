@@ -15,12 +15,13 @@ class FileStorage():
         return FileStorage.__objects
 
     def new(self, obj):
-        key_name =  obj.__class__.__name__ + "." + obj.id
+        key_name = obj.__class__.__name__ + "." + obj.id
         FileStorage.__objects[key_name] = obj.to_dict()
-        #FileStorage.__objects["{}{}".format(obj.__class__.__name__, obj.id)] = obj
+        # FileStorage.__objects["{}{}".
+        #      format(obj.__class__.__name__, obj.id)] = obj
 
     def save(self):
-        """ 
+        """
         obj_dict = {}
         for key, value in FileStorage.__objects.items():
             obj_dict[key] = value.to_dict
@@ -34,7 +35,7 @@ class FileStorage():
         try:
             with open(my_file, mode="r", encoding="utf-8") as f:
                 FileStorage.__objects = json.load(f)
-            
+
         except Exception:
             pass
         # FileStorage.__objects = json.loads(FileStorage.__file_path)
