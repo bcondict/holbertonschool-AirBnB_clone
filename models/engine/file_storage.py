@@ -5,7 +5,6 @@
 
 
 import json
-# from models.base_model import BaseModel
 
 
 class FileStorage():
@@ -31,9 +30,7 @@ class FileStorage():
 
     def save(self):
         """
-        obj_dict = {}
-        for key, value in FileStorage.__objects.items():
-            obj_dict[key] = value.to_dict
+            serializes __objects to the JSON file
         """
 
         with open(FileStorage.__file_path, mode="w", encoding="UTF-8") as f:
@@ -50,4 +47,3 @@ class FileStorage():
 
         except Exception:
             pass
-        # FileStorage.__objects = json.loads(FileStorage.__file_path)
