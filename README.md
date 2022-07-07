@@ -537,4 +537,13 @@ Task URLs  Github information Repo:
 * GitHub repository:  ` AirBnB_clone ` 
 * File:  ` models/state.py, models/city.py, models/amenity.py, models/place.py, models/review.py, tests/ ` 
  Self-paced manual review  Panel footer - Controls
- 
+ ### 10. Console 1.0
+          
+Update your command interpreter (  ` console.py `  ) to allow those actions:   ` show `  ,   ` create `  ,   ` destroy `  ,   ` update `   and   ` all `   with all classes created previously.
+Enjoy your first console!
+No unittests needed for the console
+ Task URLs  Github information Repo:
+* GitHub repository:  ` AirBnB_clone ` 
+* File:  ` console.py, models/engine/file_storage.py, tests/ ` 
+ Self-paced manual review  Panel footer - Controls 
+[Done with the mandatory tasks? Unlock 7 advanced tasks now!](https://intranet.hbtn.io/projects/263/unlock_optionals) 
