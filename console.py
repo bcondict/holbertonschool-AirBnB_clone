@@ -136,13 +136,13 @@ class HBNBCommand(cmd.Cmd):
                 if len(args) < 4:
                     print("** value missing **")
                     return False
-                if '"' in args[3]:
-                    change = args[3].replace('"', '')
-
-                    setattr(key, args[2], change)
-                    my_dict[key].save()
+                if key in my_dict.keys():
+                    my_obj = my_dict[key]
+                    setattr(my_obj, args[2], args[3])
+                    models.storage.save()
             else:
                 print("** class doesn't exist **")
+                return False
 
 
 if __name__ == '__main__':
