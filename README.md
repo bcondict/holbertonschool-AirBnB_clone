@@ -533,3 +533,8 @@ No unittests needed for the console
 *  ` Review `  ( ` models/review.py ` ):* Public class attributes:*  ` place_id ` : string - empty string: it will be the  ` Place.id ` 
 *  ` user_id ` : string - empty string: it will be the  ` User.id ` 
 *  ` text ` : string - empty string
+Task URLs  Github information Repo:
+* GitHub repository:  ` AirBnB_clone ` 
+* File:  ` models/state.py, models/city.py, models/amenity.py, models/place.py, models/review.py, tests/ ` 
+ Self-paced manual review  Panel footer - Controls
+ 
