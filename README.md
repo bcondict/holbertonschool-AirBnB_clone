@@ -513,3 +513,9 @@ No unittests needed for the console
 * GitHub repository:  ` AirBnB_clone ` 
 * File:  ` models/user.py, models/engine/file_storage.py, console.py, tests/ ` 
  Self-paced manual review  Panel footer - Controls
+### 9. More classes!
+          
+*  ` State `  ( ` models/state.py ` ):* Public class attributes:*  ` name ` : string - empty string
+*  ` City `  ( ` models/city.py ` ):* Public class attributes:*  ` state_id ` : string - empty string: it will be the  ` State.id ` 
+*  ` name ` : string - empty string
+*  ` Amenity `  ( ` models/amenity.py ` ):* Public class attributes:*  ` name ` : string - empty string
