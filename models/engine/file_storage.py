@@ -56,4 +56,4 @@ class FileStorage():
                 for key, value in file_obj:
                     eval(value["__class__"])(**value)
         except Exception:
-            pass
+            return
