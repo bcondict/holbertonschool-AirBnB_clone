@@ -2,7 +2,6 @@
 """ contains the entry point of the command interpreter. """
 
 
-from ast import Store
 import cmd
 import sys
 import shlex
@@ -36,10 +35,9 @@ class HBNBCommand(cmd.Cmd):
         """
         sys.exit()
 
-    def empyline(self, arg):
+    def emptyline(self):
         """Emptyline print a new line
         """
-        print()
         pass
 
     def do_create(self, arg):
