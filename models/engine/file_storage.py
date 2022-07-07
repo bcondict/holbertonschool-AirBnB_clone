@@ -50,14 +50,13 @@ class FileStorage():
             json.dump({key: value.to_dict() for key, value in
                         FileStorage.__objects.items()}, f)
         """
-        
 
     def reload(self):
         """
             Deserializes the JSON file to __objetcs
         """
         try:
-            with open(FileStorage.__file_path, mode="r", encoding="utf-8") as f:
+            with open(FileStorage.__file_path, "r", encoding="utf-8") as f:
                 file_obj = json.load(f).items
                 for (key, value) in file_obj:
                     eval(value["__class__"])(**value)

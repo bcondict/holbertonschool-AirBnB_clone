@@ -43,7 +43,8 @@ class HBNBCommand(cmd.Cmd):
         pass
 
     def do_create(self, arg):
-        """If arguments are valid create a new instance according to given values.
+        """If arguments are valid create a new instance according to
+            given values.
         """
         line = arg.split()
         if len(line) == 0:
@@ -117,7 +118,7 @@ class HBNBCommand(cmd.Cmd):
             print(my_list)
 
     def do_update(self, arg):
-        """  Updates an instance based on the class name and id 
+        """  Updates an instance based on the class name and id
             by adding or updating attribute
         """
         args = shlex.split(arg)
@@ -143,7 +144,6 @@ class HBNBCommand(cmd.Cmd):
             else:
                 print("** class doesn't exist **")
                 return False
-
 
 
 if __name__ == '__main__':
