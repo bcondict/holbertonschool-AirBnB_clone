@@ -5,6 +5,7 @@
 
 
 import json
+from models.base_model import BaseModel
 
 
 class FileStorage():
@@ -46,7 +47,6 @@ class FileStorage():
             Deserializes the JSON file to __objetcs
         """
         from ..amenity import Amenity
-        from ..base_model import BaseModel
         from ..city import City
         from ..place import Place
         from ..review import Review
