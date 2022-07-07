@@ -62,7 +62,7 @@ class TestFileStorage(unittest.TestCase):
         self.storage_test.reload()
         key_to_search = "BaseModel.{}".format(base_model_test.id)
         file_dict = self.storage_test.all()
-        self.assertFalse(file_dict[key_to_search] is base_model_test)
+        self.assertTrue(file_dict[key_to_search] is base_model_test)
 
     def tearDown(self):
         """ Method to leave each test
