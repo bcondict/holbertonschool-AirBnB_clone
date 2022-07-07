@@ -6,6 +6,15 @@
 
 import json
 from models.base_model import BaseModel
+from models.amenity import Amenity
+from models.city import City
+from models.place import Place
+from models.review import Review
+from models.state import State
+from models.user import User
+
+Classes = {"Amenity": Amenity, "BaseModel": BaseModel, "City": City,
+           "Place": Place, "Review": Review, "State": State, "User": User}
 
 
 class FileStorage():
@@ -36,27 +45,15 @@ class FileStorage():
             new_dict[key] = value.to_dict()
         with open(FileStorage.__file_path, mode="w", encoding="UTF-8") as f:
             json.dump(new_dict, f)
-        """
-        with open(FileStorage.__file_path, mode="w", encoding="UTF-8") as f:
-            json.dump({key: value.to_dict() for key, value in
-                        FileStorage.__objects.items()}, f)
-        """
 
     def reload(self):
         """
             Deserializes the JSON file to __objetcs
         """
-        from ..amenity import Amenity
-        from ..city import City
-        from ..place import Place
-        from ..review import Review
-        from ..state import State
-        from ..user import User
         try:
             with open(FileStorage.__file_path, "r", encoding="utf-8") as f:
                 file_obj = json.load(f).items
-                for (key, value) in file_obj:
-                    eval(value["__class__"])(**value)
-
+                for key in file_obj:
+                    FileStorage.__objects[key] = Classes[file_obj[key]["__class__"]](**file_obj[key])
         except Exception:
-            return
+            pass
