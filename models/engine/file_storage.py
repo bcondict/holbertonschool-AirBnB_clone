@@ -5,16 +5,6 @@
 
 
 import json
-from models.base_model import BaseModel
-from models.amenity import Amenity
-from models.city import City
-from models.place import Place
-from models.review import Review
-from models.state import State
-from models.user import User
-
-Classes = {"Amenity": Amenity, "BaseModel": BaseModel, "City": City,
-           "Place": Place, "Review": Review, "State": State, "User": User}
 
 
 class FileStorage():
@@ -50,9 +40,16 @@ class FileStorage():
         """
             Deserializes the JSON file to __objetcs
         """
+        from ..base_model import BaseModel
+        from ..amenity import Amenity
+        from ..city import City
+        from ..place import Place
+        from ..review import Review
+        from ..state import State
+        from ..user import User
         try:
-            with open(self.__file_path, "r", encoding="utf-8") as f:
-                file_obj = json.load(f).items
+            with open(self.__file_path, mode='r', encoding="utf-8") as f:
+                file_obj = json.load(f).items()
                 for key, value in file_obj:
                     eval(value["__class__"])(**value)
         except Exception:
