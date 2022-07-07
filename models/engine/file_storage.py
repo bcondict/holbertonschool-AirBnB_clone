@@ -33,17 +33,16 @@ class FileStorage():
             Creates a new class.id & value of an
             instance in __objects dictionary
         """
-        if obj is not None:
-            key_name = obj.__class__.__name__ + "." + obj.id
-            FileStorage.__objects[key_name] = obj.to_dict()
+        key = "{}.{}".format(obj.__class__.__name__, obj.id)
+        FileStorage.__objects[key] = obj
 
     def save(self):
         """
             serializes __objects to the JSON file
         """
         new_dict = {}
-        for key in FileStorage.__objects:
-            new_dict[key] = FileStorage.__objects[key].base_model.to_dict()
+        for key, value in FileStorage.__objects.items():
+            new_dict[key] = value.to_dict()
         with open(FileStorage.__file_path, mode="w", encoding="UTF-8") as f:
             json.dump(new_dict, f)
         """

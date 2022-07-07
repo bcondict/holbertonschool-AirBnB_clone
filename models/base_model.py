@@ -35,8 +35,6 @@ class BaseModel:
         """
         st = "[{:s}] ({:s}) {:s}"
         st = st.format(self.__class__.__name__, self.id, str(self.__dict__))
-        # return("[{}] ({}) {}".format(self.
-        #       __class__.__name__, self.id, str(self.__dict__)))
         return st
 
     def save(self):
@@ -51,7 +49,7 @@ class BaseModel:
         """
             Return a Dictionary with specific attributes and format
         """
-        my_dict = self.__dict__
+        my_dict = dict(self.__dict__)
         my_dict["created_at"] = self.created_at.isoformat()
         my_dict["updated_at"] = self.updated_at.isoformat()
         my_dict["__class__"] = self.__class__.__name__

@@ -137,10 +137,9 @@ class HBNBCommand(cmd.Cmd):
                     print("** value missing **")
                     return False
                 if '"' in args[3]:
-                    change = args[4].replace('"', '')
-                    my_obj = my_dict[args[0] + "." + args[1]]
+                    change = args[3].replace('"', '')
 
-                    setattr(my_obj, args[2], change)
+                    setattr(key, args[2], change)
                     my_dict[key].save()
             else:
                 print("** class doesn't exist **")
