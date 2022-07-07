@@ -5,7 +5,7 @@
 
 
 import uuid
-import models
+from models import storage
 from datetime import datetime
 
 
@@ -27,7 +27,7 @@ class BaseModel:
                     self.__dict__[key] = datetime.strptime(value, my_format)
                 else:
                     self.__dict__[key] = value
-        models.storage.new(self)
+        storage.new(self)
 
     def __str__(self):
         """
@@ -43,7 +43,7 @@ class BaseModel:
             and save changes in json file.
         """
         self.updated_at = datetime.now()
-        models.storage.save()
+        storage.save()
 
     def to_dict(self):
         """
