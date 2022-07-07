@@ -81,4 +81,3 @@ class TestUser(unittest.TestCase):
             os.remove("file.json")
         if os.path.exists("original_file.json"):
             os.rename("original_file.json", "file.json")
-            
