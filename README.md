@@ -438,3 +438,13 @@ No unittests needed
 * GitHub repository:  ` AirBnB_clone ` 
 * File:  ` console.py ` 
  Self-paced manual review  Panel footer - Controls
+### 8. First User
+*  ` models/user.py ` 
+* Public class attributes:*  ` email ` : string - empty string
+*  ` password ` : string - empty string
+*  ` first_name ` : string - empty string
+*  ` last_name ` : string - empty string
+Update   ` FileStorage `   to manage correctly serialization and deserialization of   ` User `  .
+Update your command interpreter (  ` console.py `  ) to allow   ` show `  ,   ` create `  ,   ` destroy `  ,   ` update `   and   ` all `   used with   ` User `  .
+```bash
+guillaume@ubuntu:~/AirBnB$ cat test_save_reload_user.py
