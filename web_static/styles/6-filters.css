@@ -50,15 +50,23 @@ ul{
 
 .popover {
     display: none;
+    position: relative;
     background-color: #fafafa;
     width: 100%;
     border: 1px solid #DDDDDD;
     margin-top: 25px;
+    padding: 10% 0;
 }
 
 .popover li{
-    margin: auto;
+    padding-left: 10%;
+    margin: 5px;
 }
+
+li h2 {
+    font-size: 16px;
+}
+
 
 .locations:hover .popover, .amenities:hover .popover{
     display: block;
