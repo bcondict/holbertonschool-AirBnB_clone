@@ -8,11 +8,11 @@ import uuid
 from models import storage
 from datetime import datetime
 
-
 class BaseModel:
     """
         Class that defines Base model attributes and methods
     """
+
     def __init__(self, *args, **kwargs):
         """
             Create new instances according given arguments and store the info
